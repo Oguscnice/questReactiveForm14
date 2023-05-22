@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,22 +7,28 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(public fb: FormBuilder) {}
-
+  
+  username = new FormControl('');
+  email = new FormControl('');
+  password = new FormControl('');
+  street = new FormControl('');
+  zip = new FormControl('');
+  city = new FormControl('');
   submit: boolean = false;
+  newUser!: any;
 
-  userForm = this.fb.group({
-    username: [''],
-    email: [''],
-    password: [''],
-    street: [''],
-    zip: [''],
-    city: [''],
-  });
-
-  onSubmit() {
+  inscription() {
     this.submit = true;
-    console.log(this.userForm.value);
-    
+
+    this.newUser = {
+      username: this.username.value,
+      email: this.email.value,
+      password: this.password.value,
+      adress: {
+        street: this.street.value,
+        zip: this.zip.value,
+        city: this.city.value,
+      },
+    };
   }
 }
