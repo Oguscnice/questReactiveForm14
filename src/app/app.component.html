@@ -27,11 +27,11 @@
 </div>
 
 <div *ngIf="submit">
-  <p>{{ newUser.username }}</p>
-  <p>{{ newUser.email }}</p>
-  <p>{{ newUser.password }}</p>
+  <p>{{ newUser.username.value }}</p>
+  <p>{{ newUser.email.value }}</p>
+  <p>{{ newUser.password.value }}</p>
   <p>
-    {{ newUser.adress.street }} {{ newUser.adress.zip }}
-    {{ newUser.adress.city }}
+    {{ newUser.adress.value.street }} {{ newUser.adress.zip.value }}
+    {{ newUser.adress.city.value }}
   </p>
 </div>
